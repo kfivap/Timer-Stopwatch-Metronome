@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Counter</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	
+
+
+
+<h1>Timer</h1>
+
+
+
+
+<h2>current time <span id="curtime"></span></h2>
+
+<div> Поставить таймер 
+  <input type="number" id="timer_minutes" 
+  placeholder="Min"  min="0" max="59">
+  <span>:</span>
+  <input type="number" id="timer_seconds" 
+  placeholder="Sec"  min="0" max="59">
+  <button id="addtimer">Add timer</button>
+  <br><br>
+  <div>
+  <button id="resettimer" disabled="true">Reset timer</button>
+  <button id="pause" disabled="true">Pause timer</button>
+  <button id="unpause" disabled="true">UnPause timer</button>
+</div>
+
+
+<br>
+<div id="quick_time_div" > Быстрое время
+  <div>
+  <button id="quick_time_30s">30 секунд</button>
+  <button id="quick_time_1m">1 минута</button>
+  <button id="quick_time_5m">5 минут</button>
+  <button id="quick_time_15m">15 минут</button>
+  <button id="quick_time_30m">30 минут</button>
+</div>
+</div>
+</div>
+
+
+<div>
+  <h2 id="timer_header">Запустите таймер!</h2>
+   <h2 id="timer_run"><span id="html_timer"></span></h2>
+  
+
+ <div id="esperating_time"></div>
+
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
