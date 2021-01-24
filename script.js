@@ -56,11 +56,15 @@ let end
 
 let after_pause= false
 
+
+
+
 function setTimerNew(){
 
 //установка
-let minutes, seconds
+let minutes, seconds, hours
 if (after_pause==false){
+hours = parseInt(document.getElementById('timer_hours').value)
 minutes = parseInt(document.getElementById('timer_minutes').value)
 seconds = parseInt(document.getElementById('timer_seconds').value)
 }
@@ -69,15 +73,15 @@ seconds = parseInt(document.getElementById('timer_seconds').value)
 
 
 //проверки
+if (Number.isNaN(hours)){hours=0}
 if (Number.isNaN(minutes)){minutes=0}
-
 if (Number.isNaN(seconds)){ seconds=0}
 
-if (seconds>59){
-  alert ('wrong')
+if (seconds>59 || minutes>59 || hours>23){
+  alert ('внимание! вы ввели более 59 секунд или минут! ')
   return
 }
-if(seconds==0 && minutes==0){
+if(seconds==0 && minutes==0 && hours==0){
   alert('таймер не может быть нулевым')
   return
 }
@@ -87,7 +91,8 @@ if(seconds==0 && minutes==0){
 
 //конец таймера
 if (after_pause== false){
- end = Date.now()+(((minutes*60)+seconds)*1000)
+ end = Date.now()+(((hours*3600)+(minutes*60)+seconds)*1000)
+
  console.log('s nulya')
 }
 if(after_pause==true){
@@ -204,6 +209,7 @@ resettimer.addEventListener('click', function(){
   unpause.disabled=true
   document.getElementById('quick_time_div').removeAttribute('hidden', 'hidden')
 
+
 })
 
 
@@ -266,9 +272,10 @@ setTimer.addEventListener('click', setTimerNew)
 let seconds = (document.getElementById('timer_seconds').value)
 
 
-function quick_time(min, sec){
+function quick_time(min, sec, hours=0){
   document.getElementById('timer_seconds').value = sec
   document.getElementById('timer_minutes').value = min
+  document.getElementById('timer_hours').value = hours
   setTimer.click()
 }
 
@@ -281,7 +288,6 @@ document.getElementById('quick_time_1m').addEventListener('click',
 function(){quick_time(1,0)}
  )
 
-
 document.getElementById('quick_time_5m').addEventListener('click',
 function(){quick_time(5,0)} )
 
@@ -291,11 +297,23 @@ function(){quick_time(15,0)})
 document.getElementById('quick_time_30m').addEventListener('click',
 function(){quick_time(30,0)} )
 
+document.getElementById('quick_time_1h').addEventListener('click',
+function(){quick_time(0,0,1)} )
+
+
+
 
 function playSound(url) {
   const audio = new Audio(url);
   audio.play();
 }
 
-
-
+/*
+for(let i=0; i<60; i++){
+  //console.log(i)
+  document.getElementById('select_seconds').innerHTML
+  +=`<option>${i}</option>`
+  document.getElementById('select_minutes').innerHTML
+  +=`<option>${i}</option>`
+}
+*/

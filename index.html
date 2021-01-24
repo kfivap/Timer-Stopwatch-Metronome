@@ -19,12 +19,16 @@
 <h2>current time <span id="curtime"></span></h2>
 
 <div> Поставить таймер 
+  <input type="number" id="timer_hours" 
+  placeholder="Hrs"  min="0" max="23">
+  <span>:</span>
   <input type="number" id="timer_minutes" 
   placeholder="Min"  min="0" max="59">
   <span>:</span>
   <input type="number" id="timer_seconds" 
   placeholder="Sec"  min="0" max="59">
   <button id="addtimer">Add timer</button>
+  <span></span>
   <br><br>
   <div>
   <button id="resettimer" disabled="true">Reset timer</button>
@@ -39,8 +43,11 @@
   <button id="quick_time_30s">30 секунд</button>
   <button id="quick_time_1m">1 минута</button>
   <button id="quick_time_5m">5 минут</button>
+  <br>
   <button id="quick_time_15m">15 минут</button>
   <button id="quick_time_30m">30 минут</button>
+  <button id="quick_time_1h">1 час</button>
+  
 </div>
 </div>
 </div>
@@ -55,10 +62,10 @@
 
 </div>
 
-
-
-
-
+<div hidden="hidden">
+<select id="select_seconds"></select>
+<select id="select_minutes"></select>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
