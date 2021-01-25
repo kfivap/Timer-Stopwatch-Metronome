@@ -448,3 +448,88 @@ Stopwatch_round_button.addEventListener('click', function(){
   
 console.log(duration)
 })
+
+
+
+
+
+
+
+
+
+
+///metronome
+
+
+
+  document.getElementById('bpm_quantity').innerHTML=
+  document.getElementById('metronome_bpm').value
+let metronome_run
+
+let tik = document.getElementById('tik')
+
+let tick=true
+
+
+let metronome_go =document.getElementById('metronome_go')
+let metronome_go_running = false
+
+
+metronome_bpm.addEventListener('input', function(){
+document.getElementById('bpm_quantity').innerHTML=
+  document.getElementById('metronome_bpm').value
+})
+
+
+
+metronome_go.addEventListener('click', function(){
+
+
+
+  if (metronome_go_running==false) 
+{
+  metronome_go_running = true
+  let bpm=parseInt(document.getElementById('metronome_bpm').value)
+  let bpm_to_ms=1000/(bpm/60)
+  metronome_run = setInterval(tik_tak_change, bpm_to_ms)
+   metronome_bpm.addEventListener('change', tik_tak_change)
+  metronome_go.innerHTML='Stop'
+return
+}
+
+
+ if (metronome_go_running==true) {
+metronome_go_running=false
+metronome_bpm.removeEventListener('change', tik_tak_change)
+clearInterval(metronome_run)
+metronome_go.innerHTML='Start'
+tik.innerHTML='Standby'
+tik.setAttribute('style', 'margin-left: 15%;')
+}  
+
+})
+
+
+
+
+function tik_tak_change(){
+  clearInterval(metronome_run)
+  let bpm=parseInt(document.getElementById('metronome_bpm').value)
+  let bpm_to_ms=1000/(bpm/60)
+  metronome_run = setInterval(function()
+  {
+    if(tick){
+    tik.innerHTML='tik'
+    tik.setAttribute('style', 'margin-left: 25%;')
+
+    playSound('metronome.mp3')
+    tick=false
+            }
+    else{
+    tik.innerHTML='tak'
+    tik.setAttribute('style', 'margin-left: 15%;')
+    playSound('metronome.mp3') 
+    tick=true
+        }
+  }, bpm_to_ms)
+}
