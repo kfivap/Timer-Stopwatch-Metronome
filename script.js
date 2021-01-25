@@ -347,7 +347,7 @@ function Stopwatch(start,){
   let i =  Date.now()
 
   duration=i-start
-  console.log(duration)
+  //console.log(duration)
   return msToTime( duration)
   
 }
