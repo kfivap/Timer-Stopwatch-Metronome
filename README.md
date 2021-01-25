@@ -1,5 +1,5 @@
-# Timer  and Stopwatch
+# Timer  Stopwatch Metronome - super universal feature
 
 
 
-https://kfivap.github.io/Timer-and-Stopwatch/
+https://kfivap.github.io/Timer-Stopwatch-Metronome/
