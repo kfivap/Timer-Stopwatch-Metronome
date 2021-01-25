@@ -32,7 +32,7 @@ let resettimer = document.getElementById('resettimer')
 let unpause = document.getElementById('unpause')
 let pause = document.getElementById('pause')
 
-
+unpause.setAttribute('hidden', '')
 
 
 
@@ -155,7 +155,7 @@ let html_timer= document.getElementById('html_timer')
   difference =  end - time_now 
 
   if(difference<0){
-
+    after_pause=false
     clearInterval(LoopInterval)
     timer_header.innerHTML='Время вышло'
     timer_run.innerHTML=" "
@@ -163,6 +163,9 @@ let html_timer= document.getElementById('html_timer')
     resettimer.disabled= true
     document.getElementById('quick_time_div').removeAttribute('hidden', 'hidden')
     playSound('audio.mp3')  
+    unpause.setAttribute('hidden', '')
+    pause.removeAttribute('hidden', '')
+    pause.disabled= true
 
     return
   }
@@ -210,6 +213,8 @@ resettimer.addEventListener('click', function(){
   document.getElementById('quick_time_div').removeAttribute('hidden', 'hidden')
 
 
+  unpause.setAttribute('hidden', '')
+pause.removeAttribute('hidden', '')
 })
 
 
@@ -225,6 +230,8 @@ pause.addEventListener('click', function(){
 
   after_pause=true
   addtimer.disabled= true
+  pause.setAttribute('hidden', '')
+  unpause.removeAttribute('hidden', '')
 
   timer_header.innerHTML='Таймер остановлен' 
   return})
@@ -251,6 +258,8 @@ unpause.addEventListener('click', function(){
 
   unpause.disabled= true
 
+  unpause.setAttribute('hidden', '')
+  pause.removeAttribute('hidden', '')
 
   
 
@@ -308,12 +317,134 @@ function playSound(url) {
   audio.play();
 }
 
-/*
-for(let i=0; i<60; i++){
-  //console.log(i)
-  document.getElementById('select_seconds').innerHTML
-  +=`<option>${i}</option>`
-  document.getElementById('select_minutes').innerHTML
-  +=`<option>${i}</option>`
+
+
+
+
+
+//document.getElementById('Stopwatch_start').innerHTML=Stopwatch()
+function msToTime(duration) {
+  let milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
 }
-*/
+
+
+
+
+let start = Date.now()
+let duration
+
+function Stopwatch(start,){
+
+  let i =  Date.now()
+
+  duration=i-start
+  console.log(duration)
+  return msToTime( duration)
+  
+}
+
+let Stopwatch_run
+
+
+let Stopwatch_start_button =document.getElementById('Stopwatch_start_button')
+Stopwatch_start_button.addEventListener(
+  'click', function(){
+    Stopwatch_start_button.disabled=true
+    Stopwatch_pause_button.disabled=false
+    Stopwatch_stop_button.disabled=false
+    Stopwatch_round_button.disabled=false
+
+    start = Date.now();
+    Stopwatch(start)
+   Stopwatch_run = setInterval(function(){
+    document.getElementById('Stopwatch_start').innerHTML=Stopwatch(start)
+  }, 100)
+
+    })
+
+let Stopwatch_pause_button =document.getElementById('Stopwatch_pause_button')
+
+Stopwatch_pause_button.addEventListener('click',function(){
+  clearInterval(Stopwatch_run)
+  Stopwatch_pause_button.disabled=true
+  Stopwatch_unpause_button.disabled=false
+  Stopwatch_unpause_button.removeAttribute('hidden', '')
+  Stopwatch_pause_button.setAttribute('hidden', '')
+ 
+}
+  )
+
+let Stopwatch_unpause_button =document.getElementById('Stopwatch_unpause_button')
+Stopwatch_unpause_button.addEventListener('click',function(){
+  
+  start = Date.now()-duration
+
+
+   Stopwatch_run = setInterval(function(){
+    document.getElementById('Stopwatch_start').innerHTML=Stopwatch(start)
+  }, 100)
+   Stopwatch_unpause_button.disabled=true
+   Stopwatch_pause_button.disabled=false
+   Stopwatch_pause_button.removeAttribute('hidden', '')
+  Stopwatch_unpause_button.setAttribute('hidden', '')
+
+
+}
+  )
+
+
+let Stopwatch_stop_button =document.getElementById('Stopwatch_stop_button')
+
+Stopwatch_stop_button.addEventListener(
+  'click', function(){clearInterval(Stopwatch_run)
+    Stopwatch_start_button.disabled=false
+    Stopwatch_pause_button.disabled=true
+Stopwatch_unpause_button.disabled=true
+Stopwatch_stop_button.disabled=true
+Stopwatch_pause_button.removeAttribute('hidden', '')
+ Stopwatch_unpause_button.setAttribute('hidden', '')
+ document.getElementById('Stopwatch_start').innerHTML="00:00:00.0"
+ previous_duration=0
+ document.getElementById('Stopwatch_round').innerHTML=''
+ duration=0
+ round_counter=0
+ Stopwatch_round_button.disabled=true
+  })
+
+
+Stopwatch_pause_button.disabled=true
+Stopwatch_unpause_button.disabled=true
+Stopwatch_stop_button.disabled=true
+Stopwatch_unpause_button.setAttribute('hidden', '')
+
+
+
+let Stopwatch_round_button=document.getElementById('Stopwatch_round_button')
+
+Stopwatch_round_button.disabled=true
+
+let round_counter=0
+
+let previous_duration=0
+Stopwatch_round_button.addEventListener('click', function(){
+
+  let round_duration=duration- previous_duration
+  previous_duration=duration
+  document.getElementById('Stopwatch_round').innerHTML+=
+  `<br>
+  ${++round_counter} круг :
+  +${msToTime(round_duration)} / Total
+  ${msToTime(duration)}
+  `
+  
+console.log(duration)
+})
