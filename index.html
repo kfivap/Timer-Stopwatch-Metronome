@@ -10,15 +10,14 @@
 	
 
 
+<div id="main">
 
+<div id="Timer_div">
 <h1>Timer</h1>
-
-
-
-
 <h2>current time <span id="curtime"></span></h2>
 
 <div> Поставить таймер 
+  <br>
   <input type="number" id="timer_hours" 
   placeholder="Hrs"  min="0" max="23">
   <span>:</span>
@@ -27,13 +26,15 @@
   <span>:</span>
   <input type="number" id="timer_seconds" 
   placeholder="Sec"  min="0" max="59">
-  <button id="addtimer">Add timer</button>
-  <span></span>
-  <br><br>
-  <div>
-  <button id="resettimer" disabled="true">Reset timer</button>
-  <button id="pause" disabled="true">Pause timer</button>
+
+
+<div>
+  <button id="addtimer">Add timer</button>  
+
+  <button id="pause" disabled="true">Pause timer</button> 
   <button id="unpause" disabled="true">UnPause timer</button>
+  <button id="resettimer" disabled="true">Reset timer</button>
+  
 </div>
 
 
@@ -43,12 +44,10 @@
   <button id="quick_time_30s">30 секунд</button>
   <button id="quick_time_1m">1 минута</button>
   <button id="quick_time_5m">5 минут</button>
-  <br>
   <button id="quick_time_15m">15 минут</button>
   <button id="quick_time_30m">30 минут</button>
   <button id="quick_time_1h">1 час</button>
-  
-</div>
+  </div>
 </div>
 </div>
 
@@ -62,6 +61,12 @@
 
 </div>
 
+</div>
+
+
+
+<div id="stop_and_metr">
+<div id="Stopwatch_div">
 
 <h1>Stopwatch</h1>
 <button id="Stopwatch_start_button">Start</button>
@@ -69,25 +74,24 @@
 <button id="Stopwatch_unpause_button">UNPause</button>
 <button id="Stopwatch_stop_button">Stop</button>
 <button id="Stopwatch_round_button">Round</button>
-
-
 <div id="Stopwatch_start">00:00:00.0</div>
-
 <div id="Stopwatch_round"></div>
 
+</div>
 
-
+<div id="Metronome_div">
 <h1>Metronome</h1>
 <input type="range" id="metronome_bpm"
          min="30" max="300" value="120"><span id="bpm_quantity"></span>
 <button id="metronome_go">start</button>
+<h2><span id="tik">Standby</span></h2>
+</div>
+
+</div>
 
 
-<h2>  <span id="tik">Standby</span>          </h2>
 
-
-
-
+</div>
 <script src="script.js"></script>
 </body>
 </html>

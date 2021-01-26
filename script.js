@@ -504,7 +504,7 @@ metronome_bpm.removeEventListener('change', tik_tak_change)
 clearInterval(metronome_run)
 metronome_go.innerHTML='Start'
 tik.innerHTML='Standby'
-tik.setAttribute('style', 'margin-left: 15%;')
+tik.setAttribute('style', 'margin-left: 0;')
 }  
 
 })
@@ -520,7 +520,7 @@ function tik_tak_change(){
   {
     if(tick){
     tik.innerHTML='tik'
-    tik.setAttribute('style', 'margin-left: 25%;')
+    tik.setAttribute('style', 'margin-left: -15%;')
 
     playSound('metronome.mp3')
     tick=false

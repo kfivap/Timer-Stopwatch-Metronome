@@ -1,9 +1,53 @@
-#tik {
-	margin-left: 15%;
+body{
+	background: #d5ebf0;
+	font-family: tahoma;
 
 }
+h1{
+	color:#a31c5d;
+
+
+
+}
+
+
+#main{
+	
+}
+
+
+#Timer_div{
+text-align: center;
+
+}
+
+#Stopwatch_div{
+
+	  display: inline-block;
+	  position: absolute;
+top: 50%;
+left: 10%;
+
+}
+
+
+#Metronome_div{
+	text-align: center;
+	  display: inline-block;
+position: absolute;
+top: 50%;
+left: 60%;
+
+}
+
+
+
+
 
 
 #metronome_bpm{
-	width: 60%;
+	width: 250px;
 }
+
+
+
