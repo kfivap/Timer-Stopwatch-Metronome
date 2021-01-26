@@ -6,8 +6,6 @@ body{
 h1{
 	color:#a31c5d;
 
-
-
 }
 
 
@@ -25,17 +23,17 @@ text-align: center;
 
 	  display: inline-block;
 	  position: absolute;
-top: 50%;
+top: 43%;
 left: 10%;
 
 }
 
 
 #Metronome_div{
-	text-align: center;
+	
 	  display: inline-block;
 position: absolute;
-top: 50%;
+top: 43%;
 left: 60%;
 
 }
