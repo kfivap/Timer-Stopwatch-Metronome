@@ -89,3 +89,18 @@ left: 0%;
 	text-align: center;
 }
 
+
+input{
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+#metronome_bpm{
+	  -webkit-appearance: none;
+
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+
+}
