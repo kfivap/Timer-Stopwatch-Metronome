@@ -1,7 +1,8 @@
 body{
 	background: #d5ebf0;
 	font-family: tahoma;
-
+background: rgb(86,226,235);
+background: linear-gradient(90deg, rgba(86,226,235,0.244) 2%, rgba(32,250,163,0.24) 16%, rgba(0,212,255,0.24417) 47%, rgba(226,0,255,0.17419) 87%);
 }
 h1{
 	color:#a31c5d;
