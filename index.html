@@ -16,7 +16,7 @@
 <h1>Timer</h1>
 <h2>current time <span id="curtime"></span></h2>
 
-<div> Поставить таймер 
+<div> <span class="mini_header">Поставить таймер</span>
   <br>
   <input type="number" id="timer_hours" 
   placeholder="Hrs"  min="0" max="23">
@@ -39,7 +39,7 @@
 
 
 <br>
-<div id="quick_time_div" > Быстрое время
+<div id="quick_time_div" > <span class="mini_header">Быстрое время</span>
   <div>
   <button id="quick_time_30s">30 секунд</button>
   <button id="quick_time_1m">1 минута</button>
@@ -74,15 +74,15 @@
 <button id="Stopwatch_unpause_button">UNPause</button>
 <button id="Stopwatch_stop_button">Stop</button>
 <button id="Stopwatch_round_button">Round</button>
-<div id="Stopwatch_start">00:00:00.0</div>
+<div class="mini_header"><div id="Stopwatch_start">00:00:00.0</div></div></div>
 <div id="Stopwatch_round"></div>
 
-</div>
+
 
 <div id="Metronome_div">
 <h1>Metronome</h1>
 <input type="range" id="metronome_bpm"
-         min="30" max="300" value="120"><span id="bpm_quantity"></span>
+         min="30" max="300" value="120"><span class="mini_header" id="bpm_quantity"></span>
 <button id="metronome_go">start</button>
 <h2><span id="tik">Standby</span></h2>
 </div>

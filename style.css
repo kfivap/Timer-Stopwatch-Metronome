@@ -8,9 +8,42 @@ h1{
 
 }
 
+button{
+	
+	margin-top: 10px;
+	font-size: 20px;
+	  padding: 10px 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+background-color: white;
+border-radius: 8px;
+border: 2px solid #929cad;
+
+}
+
+button:hover:enabled {
+  background-color: #77b6bf;
+  color: white;
+  border: 2px solid #77b6bf;
+  transition-duration: 0.4s;
+  box-shadow: 0 10px 8px 0 rgba(0,0,0,0.24), 0 7px 8px 0 rgba(0,0,0,0.19);
+
+}
+
+
+
+button:disabled{
+	font-weight: lighter;
+	border: 1px solid #d5e2f7;
+	opacity: 0.6;
+
+	
+}
+
 
 #main{
-	
+	text-align: center;
 }
 
 
@@ -22,9 +55,9 @@ text-align: center;
 #Stopwatch_div{
 
 	  display: inline-block;
-	  position: absolute;
-top: 43%;
-left: 10%;
+	  position: relative;
+padding: 50px;
+left: 0%;
 
 }
 
@@ -32,9 +65,10 @@ left: 10%;
 #Metronome_div{
 	
 	  display: inline-block;
-position: absolute;
-top: 43%;
-left: 60%;
+position: relative;
+padding: 50px;
+
+left: 0%;
 
 }
 
@@ -48,4 +82,9 @@ left: 60%;
 }
 
 
+.mini_header{
+	font-weight: bold;
+	margin-top: 10px;
+	text-align: center;
+}
 
